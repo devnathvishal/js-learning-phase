@@ -28,3 +28,28 @@ const funValue = function()
                     console.log("Hello World");
                }                 
            console.log(typeof valSymbol);      
+
+
+
+
+//****************************************************** */
+
+//Stack Memory(Primitive) & Heap Memory(Non-Primitive)
+
+let firtsName = "Sam"
+
+let secondName = firtsName;
+
+console.log(secondName);
+ secondName = "Ram"
+ console.log(firtsName);
+ console.log(secondName);
+
+ let firstMemory = {
+                    email: "Jonathan@google.com",
+                    userId : 3321
+                   }
+      let secondMemory = firstMemory;
+      secondMemory.email = "Sam@google.com"
+      console.log(firstMemory.email);
+      console.log(secondMemory.email);
