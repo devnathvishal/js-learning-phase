@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nodes</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+
+      <script>
+        //How to traverse the document and create new element
+
+       const div= document.createElement('div') //create new element in document
+             console.log(div);
+             div.className="Main"  //set class of te div
+             div.id= Math.round(Math.random()*10+10) //set id of the div
+             div.setAttribute("title", "My Title") // set whole attribute
+             div.style.backgroundColor= "red"
+             div.style.borderRadius= "15px"
+             div.style.padding = "5px"
+            //  div.innerText = "adding text through innertext" //This is one way to to add text to the div
+             const addText = document.createTextNode("Second way to add text") //Second way to add text
+             div.appendChild(addText)  //Append the text to the div
+             document.body.appendChild(div) //Append the div to the text
+      </script>    
+</body>
+</html>

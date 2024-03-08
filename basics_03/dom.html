@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+     
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+ 
+
+    <script>
+         
+        //  This is a basic example of adding elements to the document with the help of function
+         function addLangName(name)
+         {
+             const li = document.createElement('li'); //creation of an element
+             li.innerHTML = `${name}` //adding text to the element
+             document.querySelector('.language').appendChild(li)
+         }
+        
+         addLangName('python')
+         addLangName('Typescript')
+        
+       // This is optimized way to add element to the function
+
+       function optLanguage(langName)
+       {
+        const li = document.createElement('li');
+              li.appendChild(document.createTextNode(langName)) 
+              document.querySelector('.language').appendChild(li)       
+       }
+       optLanguage('Ruby')
+
+       //In the first function we have used li.innerhtml where whole li element was getting traveresed which in not
+       // the optimized way to add element in case of huge documents.
+       //But in optimized function where append child just add the element without traversing whole document
+
+
+
+
+
+     //EDIT
+
+       const secondLang = document.querySelector("li:nth-child(2)")
+       console.log(secondLang);
+       secondLang.innerHTML = "Java" // Not a optimized way 
+       const newLi = document.createElement('li');
+       newLi.textContent = "GOJO"
+       secondLang.replaceWith(newLi)
+
+       const firstLang = document.querySelector("li:first-child")
+       firstLang.outerHTML = "<li>Yanei</li>"   
+
+       //remove
+
+       const removeLang = document.querySelector("li:last-child")
+       removeLang.remove();
+       
+    </script>
+
+</body>
+</html>
