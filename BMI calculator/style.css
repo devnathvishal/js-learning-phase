@@ -1,0 +1,23 @@
+body
+{
+    background-color: rgb(77, 77, 77);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container
+{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    
+}
+
+label
+{
+    margin: 20px;
+}
+
+#results
+{
+    margin: 100px;
+}
