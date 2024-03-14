@@ -2,7 +2,7 @@ const form = document.querySelector('form')
 
 form.addEventListener('submit', function(e)
 {
-e.preventDefault();
+e.preventDefault();  // To prevent default submit action of form
 
 const height = document.querySelector('#height').value
 const weight = document.querySelector('#weight').value
