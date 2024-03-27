@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BackGroundColorChanger</title>
+</head>
+<body>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+
+    <script>
+        /*here created a function to get aa random hex color code*/
+        const randomColor = function()
+         {
+          const hex = '123456789ABCDEF'
+          color = '#'
+          for(i=0;i<6;i++)
+          {
+            color +=  hex[Math.floor(Math.random()*16)]
+          }
+          return color;
+         };
+        
+         /*here created a varaible to store the setInterval function so it can be used in global scope*/
+        let intervalId;
+        const startChangingColor = function(){
+          /*if statement is used to check the null value after clearing the previous values with the help of clearInteval*/
+          /*basically it is checked t create a better code*/
+          if(!intervalId){
+          intervalId = setInterval(changeBgColor,1000);
+         }
+         function changeBgColor()
+          {
+            document.body.style.backgroundColor = randomColor();
+          } 
+        }
+       
+
+         const stopChangingColor = function()
+         {
+           clearInterval(intervalId);
+           intervalId =  null;
+         }
+         
+          document.querySelector("#start").addEventListener('click',startChangingColor);
+          document.querySelector("#stop").addEventListener('click',stopChangingColor);
+
+        
+
+
+    </script>
+</body>
+</html>
