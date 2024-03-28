@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+    <style>
+        body
+        {
+            background-color: #212121;
+            color: #fff;
+        }
+
+        .card
+        {
+            width: 500px;
+            height: 600px;
+            border-radius: 6px;
+            border: 1px solid yellow;
+        }
+       
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="sectionOne">
+        </div>
+        <div class="sectiontwo"></div>
+        
+    </div>
+    
+
+    <script>
+          const xhr  = new XMLHttpRequest();   // here XMLHttpRequest object is created to access its method to fetch data  
+          const getURL = 'https://api.github.com/users/devnathvishal';  // url of the API file is assigned to the variable
+          xhr.open('GET',getURL)       
+          xhr.onreadystatechange = function()  
+          {
+            console.log(xhr.readyState); //checks
+            if(xhr.readyState=== 4)
+            {
+                const data = JSON.parse(this.responseText);  // Json.parse is used to convert string data into Json to access data
+                console.log(typeof data); // checks
+        
+
+                const firstSection = document.querySelector('.sectionOne'); //select the first section
+                const firstChild = document.createElement('img'); // created an image tag
+                firstChild.style.width = '100px'
+                firstChild.style.height = '100px'
+                firstChild.style.borderRadius = '50%'
+                firstChild.setAttribute('src',`${'https://avatars.githubusercontent.com/u/110326926?v=4'}`)
+                firstSection.appendChild(firstChild) // append the created tag in first section
+                
+                const pubrepo = document.querySelector('.sectiontwo');
+                const paragraph =  document.createElement("p");  // another tag to add more data
+                paragraph.textContent = `Number of people is ${data.public_repos} `
+                pubrepo.appendChild(paragraph);
+                
+            }
+          }
+          xhr.send()  // To send request for the data
+    </script>
+</body>
+</html>
